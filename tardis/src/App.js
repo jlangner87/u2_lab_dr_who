@@ -11,11 +11,13 @@ function App() {
   const [lowerName, setName] = useState('')
   const handleChange = (event) => {
     setCaps((current) => !current)
-    if (setCaps === true) {
-      let result = event.target.value.toUpperCase()
-      setName(result)
+    if (setCaps !== true) {
+      console.log(tardis.name.toUpperCase())
+    } else if (setCaps !== false) {
+      console.log(tardis.name)
     }
-    console.log('The button has been clicked!', caps)
+
+    console.log('The button has been clicked! Caps state is:', caps)
   }
 
   return (
