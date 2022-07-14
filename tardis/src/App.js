@@ -4,21 +4,35 @@ import './App.css'
 import tardis from './tardis'
 import DivOne from './components/DivOne'
 import DivTwo from './components/DivTwo'
+import DivThree from './components/DivThree'
 
 function App() {
-  const [capsState, setCaps] = useState('')
-
+  const [caps, setCaps] = useState(false)
+  const [lowerName, setName] = useState('')
   const handleChange = (event) => {
-    console.log('The click is working')
+    setCaps((current) => !current)
+    if (setCaps === true) {
+      let result = event.target.value.toUpperCase()
+      setName(result)
+    }
+    console.log('The button has been clicked!', caps)
   }
 
   return (
     <div className="App">
       <div>
-        <h3 onClick={handleChange}>{tardis.name}</h3>
+        <DivOne
+          handleChange={handleChange}
+          lowerName={lowerName}
+          name={tardis.name}
+        ></DivOne>
       </div>
     </div>
   )
 }
 
 export default App
+
+// {tardis.name.toUpperCase()}
+
+//https://bobbyhadz.com/blog/react-toggle-boolean-state
